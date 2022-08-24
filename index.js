@@ -9,7 +9,7 @@ const app = express();
 
 app.use(bodyParser.json());
 
-app.get("/", (req, res) => res.send(`Requested from ${req.hostname} <h1>Hello World!</h1>`));
+app.get("/", (req, res) => res.send(`Reques from ${req.hostname} <h1>Hello World!</h1>`));
 
 app.post("/mail", async (req, res) => {
   const { email, message } = req.body;
