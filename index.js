@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import Mail from "./mail.js";
 
 const port = process.env.PORT || 3000;
+const hostname = process.env.HOST || "localhost";
 const app = express();
 
 app.use(bodyParser.json());
@@ -15,6 +16,6 @@ app.post("/mail", async (req, res) => {
   return res.json({ result: await Mail.send(email, message) });
 })
 
-app.listen(port, () => {
-  console.log(`Server listening on port ${port}`);
+app.listen(port, hostname, () => {
+  console.log(`Server running on ${hostname} and listening port ${port}`);
 });
