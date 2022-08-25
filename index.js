@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import bodyParser from "body-parser";
 
 import Mail from "./mail.js";
@@ -6,6 +7,7 @@ import Mail from "./mail.js";
 const port = process.env.PORT || 3000;
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.json());
 
 app.post("/mail", async (req, res) => {
