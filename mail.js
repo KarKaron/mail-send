@@ -29,14 +29,13 @@ class Mail {
     });
   }
 
-  async send(reciever, message) {
+  async send(reciever, subject, message) {
     try {
       const info = await this.#transporter.sendMail({
-        from: `GLP логистика: <${EMAIL_HOST_USER}>`,
+        from: `<${EMAIL_HOST_USER}>`,
         to: reciever,
-        subject: "Подтверждение отправки заказа",
-        text: message,
-        html: `<b>${message}</b>`
+        subject: subject,
+        text: message
       });
       return info.messageId;      
     } catch (e) {
